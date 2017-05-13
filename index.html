@@ -23,7 +23,7 @@
       <input type="number" v-model="x1" placeholder="X"> &times; 
       <input type="number" v-model="y1" placeholder="Y">
       <hr>
-      <pre>{{ ratioDecimal }}</pre>
+      <pre v-text="ratioDecimal"></pre>
 
       <div class="ratio-figure" :style="{paddingBottom: ratioPercent}"></div>
     </div>
