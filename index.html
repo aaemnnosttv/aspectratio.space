@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>JS Bin</title>
+
+  <style>
+.AspectCalc {
+  max-width: 400px;
+}
+.ratio-figure {
+  background: lightcoral;
+  border: 1px solid red;
+}
+  </style>
+</head>
+<body>
+  
+  <div id="app">
+    <div class="AspectCalc">
+      <input type="number" v-model="x1" placeholder="X"> &times; 
+      <input type="number" v-model="y1" placeholder="Y">
+      <hr>
+      <pre>{{ ratioDecimal }}</pre>
+
+      <div class="ratio-figure" :style="{paddingBottom: ratioPercent}"></div>
+    </div>
+  </div>
+
+  <script src="https://unpkg.com/vue"></script>
+  <script>
+new Vue({
+  el: '#app',
+
+  data() {
+    return {
+      x1: 100,
+      y1: 100,
+    }
+  },
+
+  computed: {
+    ratioDecimal() {
+      return (this.y1 / this.x1) || 1;
+    },
+    ratioPercent() {
+      return `${this.ratioDecimal * 100}%`;
+    }
+  }
+});
+  </script>
+</body>
+</html>
