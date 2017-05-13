@@ -17,11 +17,12 @@
   </style>
 </head>
 <body>
-  
+
   <div id="app">
     <div class="AspectCalc">
       <input type="number" v-model="x1" placeholder="X"> &times; 
       <input type="number" v-model="y1" placeholder="Y">
+      <button @click="swap">Rotate</button>
       <hr>
       <pre v-text="ratioDecimal"></pre>
 
@@ -47,6 +48,12 @@ new Vue({
     },
     ratioPercent() {
       return `${this.ratioDecimal * 100}%`;
+    }
+  },
+
+  methods: {
+    swap() {
+      [this.x1, this.y1] = [this.y1, this.x1];
     }
   }
 });
